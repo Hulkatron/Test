@@ -6,7 +6,7 @@ use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Entity\EntityFieldManagerInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Field\FieldTypePluginManagerInterface;
-use Drupal\Core\File\FileSystem;
+use Drupal\Core\File\FileSystemInterface as CoreFileSystemInterface;
 use Drupal\Core\Image\ImageFactory;
 use Drupal\media\MediaInterface;
 use Drupal\media\MediaTypeInterface;
@@ -77,7 +77,7 @@ class Image extends File {
    * @param \Drupal\Core\File\FileSystem $file_system
    *   The file system service.
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityTypeManagerInterface $entity_type_manager, EntityFieldManagerInterface $entity_field_manager, FieldTypePluginManagerInterface $field_type_manager, ConfigFactoryInterface $config_factory, ImageFactory $image_factory, FileSystem $file_system) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityTypeManagerInterface $entity_type_manager, EntityFieldManagerInterface $entity_field_manager, FieldTypePluginManagerInterface $field_type_manager, ConfigFactoryInterface $config_factory, ImageFactory $image_factory, CoreFileSystemInterface $file_system) {
     parent::__construct($configuration, $plugin_id, $plugin_definition, $entity_type_manager, $entity_field_manager, $field_type_manager, $config_factory);
 
     $this->imageFactory = $image_factory;
